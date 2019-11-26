@@ -463,4 +463,9 @@ export const SETTINGS = {
         displayName: _td("Show previews/thumbnails for images"),
         default: true,
     },
+    "crawlerSleepTime": {
+        supportedLevels: LEVELS_DEVICE_ONLY_SETTINGS,
+        displayName: _td("How long should the crawler wait between requests"),
+        default: 3000,
+    }
 };
