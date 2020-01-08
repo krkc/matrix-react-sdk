@@ -20,10 +20,14 @@ import PropTypes from 'prop-types';
 import createReactClass from 'create-react-class';
 import { linkifyElement } from '../../../HtmlUtils';
 import SettingsStore from "../../../settings/SettingsStore";
+<<<<<<< HEAD
 import {MatrixClientPeg} from "../../../MatrixClientPeg";
 import * as sdk from "../../../index";
 import Modal from "../../../Modal";
 import * as ImageUtils from "../../../ImageUtils";
+=======
+import { _t } from "../../../languageHandler";
+>>>>>>> develop
 
 export default createReactClass({
     displayName: 'LinkPreviewWidget',
@@ -125,6 +129,7 @@ export default createReactClass({
                   </div>;
         }
 
+        const AccessibleButton = sdk.getComponent('elements.AccessibleButton');
         return (
             <div className="mx_LinkPreviewWidget" >
                 { img }
@@ -135,9 +140,10 @@ export default createReactClass({
                         { p["og:description"] }
                     </div>
                 </div>
-                <img className="mx_LinkPreviewWidget_cancel mx_filterFlipColor"
-                    src={require("../../../../res/img/cancel.svg")} width="18" height="18"
-                    onClick={this.props.onCancelClick} />
+                <AccessibleButton className="mx_LinkPreviewWidget_cancel" onClick={this.props.onCancelClick} aria-label={_t("Close preview")}>
+                    <img className="mx_filterFlipColor" alt="" role="presentation"
+                        src={require("../../../../res/img/cancel.svg")} width="18" height="18" />
+                </AccessibleButton>
             </div>
         );
     },
